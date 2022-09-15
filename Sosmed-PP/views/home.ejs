@@ -21,9 +21,11 @@
           <a style="margin-left: 100px;" href="/login"><button style="background-color: blue; color: white;">logout</button></a>    
          </div>
         </div> 
-        <div class="logout-container">
-          <a href="/login"><button>Logout</button></a>
-        </div>
+        <% if(result.role == 'admin') { %>
+          <% } %> 
+          <div class="logout-container">
+            <a href="/listUser"><button>List User</button></a>
+          </div>
       
       <div class="post-tweet">
         <h3>What's Happening?</h3> 
