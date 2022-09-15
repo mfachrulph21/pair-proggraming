@@ -1,0 +1,14 @@
+[
+    {
+        "email":"marger0@exblog.jp",
+        "password":"admin123",
+        "role":"admin",
+        "username":"Margaux Arger"
+    },
+    {
+        "email":"singrey1@shareasale.com",
+        "password":"user123",
+        "role":"user",
+        "username":"Slade Ingrey"
+    }
+]

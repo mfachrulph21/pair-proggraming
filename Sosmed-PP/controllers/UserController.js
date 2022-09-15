@@ -1,5 +1,6 @@
-const { User } = require('../models')
+const { User, Profile, Post} = require('../models')
 const bcrypt = require('bcryptjs');
+
 
 class Controller {
 
@@ -52,7 +53,7 @@ class Controller {
     }
 
     static home(req, res) {
-        let id = req.params.id
+        console.log(req.session)
         let result;
 
         User.findAll({
@@ -62,7 +63,7 @@ class Controller {
             result = data
             return Profile.findOne({
                 where : {
-                    UserId : id
+                    id : req.session.userId
                 }
             })
         })
