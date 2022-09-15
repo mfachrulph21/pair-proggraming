@@ -34,7 +34,7 @@
           <button type="submit">Post Tweet</button>
         </form> 
       </div> 
-            <% result.Posts.forEach((post) => { %>
+            <% result.Posts.reverse().forEach((post) => { %>
                 <div class="tweet-block">
                     <img src="<%= result.Profile.photo %>" alt="profile photo" /><br>
                     <span><%= post.category %></span>
