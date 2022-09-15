@@ -22,8 +22,13 @@
       
       <div class="post-tweet">
         <h3>What's Happening?</h3> 
-        <form action="/" method="post">
+        <form action="/home" method="post">
           <textarea name="content"></textarea>
+            <select name="category" id="category">
+            <option value="Daily update">Daily update</option>
+            <option value="News">News</option>
+            <option value="Random">Random</option>
+          </select>
           <button type="submit">Post Tweet</button>
         </form> 
       </div> 

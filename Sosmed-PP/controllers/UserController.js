@@ -10,8 +10,20 @@ class Controller {
 
     static postRegister(req, res) {
         const { username, email, password, role } = req.body
+        let allData;
+
         User.create({ username, email, password, role })
-        .then((data) => {
+        .then((resultCreate) => {
+            return User.findOne({
+                where : {
+                    username : username
+                }
+            })
+        })
+        .then((resultFindOne) => {
+            return Profile.create({UserId : resultFindOne.id})
+        })
+        .then(() => {
             res.redirect('/login')
         })
         .catch((err) => {
@@ -53,7 +65,6 @@ class Controller {
     }
 
     static home(req, res) {
-        console.log(req.session)
         let result;
 
         User.findAll({
@@ -70,6 +81,19 @@ class Controller {
         .then((dataProfile) => {
             // res.send({result, dataProfile})
             res.render('home', { result, dataProfile })
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
+    
+    static handleTweet(req,res) {
+        // console.log(req.body, 'ini di handle tweet')
+
+        const { category, content } = req.body
+        Post.create({ category, content, UserId : req.session.userId})
+        .then(() => {
+            res.redirect('/home')
         })
         .catch((err) => {
             res.send(err)
