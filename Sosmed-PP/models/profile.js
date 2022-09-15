@@ -10,15 +10,19 @@ module.exports = (sequelize, DataTypes) => {
       Profile.belongsTo(models.User)
     }
 
+    get dateConvert() {
+      return this.birthDate.toISOString().slice(0,10)
+    }
+
   }
   Profile.init({
     biodata: {
       type : DataTypes.STRING,
-      defaultValue : ''
+      defaultValue : 'mashook'
     },
     birthDate: {
       type : DataTypes.DATE,
-      defaultValue : convertDate(new Date())
+      defaultValue : new Date()
     },
     gender:{
       type : DataTypes.STRING,

@@ -35,12 +35,12 @@
         </form> 
       </div> 
 
-      <% result.forEach((el) => { %>
-            <% el.Posts.forEach((post) => { %>
+     
+            <% result.Posts.forEach((post) => { %>
                 <div class="tweet-block">
-                    <img src="<%= el.Profile.photo %>" alt="profile photo" /><br>
+                    <img src="<%= result.Profile.photo %>" alt="profile photo" /><br>
                     <span><%= post.category %></span>
-                    <span class="tweet-content"><span class="display-name"><%= el.username %></span>•<span class="username">@<%= el.username %></span><br><%= post.content%></span>
+                    <span class="tweet-content"><span class="display-name"><%= result.username %></span>•<span class="username">@<%= result.username %></span><br><%= post.content%></span>
                     <div class="tweet-links">
                     <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
                     <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
@@ -48,7 +48,6 @@
                     </div> 
                </div> 
           <%  }) %> 
-      <% }) %> 
       
       <!-- <div class="tweet-block">
               <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
