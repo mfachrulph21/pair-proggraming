@@ -14,6 +14,7 @@ router.get('/logout', UserController.goLogout)
 router.get('/home', UserController.home)
 router.get('/profile', UserController.editProfile)
 router.post('/profile', UserController.postProfile)
+router.get('/listUser', UserController.listUser)
 
 
 module.exports = router;
