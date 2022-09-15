@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+</head>
+<body>
+    <h1>Profile <%= data.username %></h1>
+    <form action="/profile" method="post" class="form-reports">
+        <img src="<%= data.photo %>" alt="Photo"><br><br>
+        <label>Name</label><br>
+        <input type="text" name="firstName" value="<%= data.username %>" placeholder="name"><br><br>
+        <label>Bio</label><br>
+        <textarea name="biodata" placeholder="biodata" cols="50" rows="10"><%= data.biodata %></textarea><br><br>
+        <label>BirthDate</label><br>
+        <input type="date" name="birthDate" value="<%= data.birthDate %>" placeholder="Birth Date"><br><br>
+        <label>Gender</label><br>
+        <select name="gender"> 
+            <option selected disabled>-- choose role --</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+        </select> <br><br>
+        <label>Phone</label><br>
+        <input type="text" name="phone" value="<%= data.phone%>" placeholder="phone"><br><br>
+        <label>Photo</label><br>
+        <input type="text" name="photo" value="<%= data.photo %>" placeholder="photo url"><br><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

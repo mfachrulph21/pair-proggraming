@@ -84,6 +84,33 @@ class Controller {
             }
         })
     }
+
+    static editProfile(req, res) {
+        User.findOne({
+            include: [Profile, Post],
+            where : {
+                id : req.session.userId
+            }
+        })
+        .then((data) => {
+            res.render('profile', { data })
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
+
+    static postProfile(req, res) {
+        console.log(req.session);
+        let { name, biodata, birthDate, gender, phone, photo } = req.body
+        Profile.update({name, biodata, birthDate, gender, phone, UserId: req.session.userId, photo})
+        .then((data) => {
+            res.redirect('/home')
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
 }
 
 module.exports = Controller
