@@ -162,9 +162,7 @@ class Controller {
     }
 
     static listUser(req, res) {
-        User.findAll({
-            include : [Profile, Post]
-        })
+        User.findAll()
         .then((result) => {
             // res.send(result)
             res.render('listUser', {result})
@@ -175,9 +173,11 @@ class Controller {
     }
 
     static deleteUser(req, res) {
+        console.log(req.params);
+        let { id } = req.params
         User.destroy({
             where: {
-                id : req.session.userId
+                id : id
             }
         })
         .then((data) => {
