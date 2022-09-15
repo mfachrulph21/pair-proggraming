@@ -29,6 +29,19 @@ body {
   bottom: 2px;
 }
 
+.logout-container {
+  width: 20%;
+  display: inline-block;
+  text-align: center;
+}
+
+.logout-container img {
+  width: 24px;
+  vertical-align: middle;
+  position: relative;
+  bottom: 2px;
+}
+
 .logo-container {
   width: 60%;
   display: inline-block;  
