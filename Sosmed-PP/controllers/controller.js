@@ -1,4 +1,4 @@
-const { User } = require('../models')
+const { User, Profile, Post} = require('../models')
 
 class Controller {
 
@@ -19,8 +19,39 @@ class Controller {
         .catch((err) => {
             res.send(err)
         })
-
     } 
+
+    static formProfile(req, res) {
+
+    }
+
+    static home(req, res)  {
+        let id = req.params.id
+        let result;
+
+        User.findAll({
+            include : [Profile, Post]
+        })
+        .then((data) => {
+            result = data
+            return Profile.findOne({
+                where : {
+                    UserId : id
+                }
+            })
+
+            // res.send(data)
+          
+        })
+        .then((dataProfile) => {
+            res.send({result, dataProfile})
+            // res.render('home', { result, dataProfile })
+
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
 }
 
 module.exports = Controller
