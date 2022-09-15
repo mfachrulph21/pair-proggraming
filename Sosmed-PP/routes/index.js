@@ -12,8 +12,9 @@ router.use(isLoggin)
 
 router.get('/logout', UserController.goLogout)
 router.get('/home', UserController.home)
+router.post('/home', UserController.handleTweet)
 router.get('/profile', UserController.editProfile)
 router.post('/profile', UserController.postProfile)
-
+router.get('/profile/detail', UserController.detailProfile)
 
 module.exports = router;
