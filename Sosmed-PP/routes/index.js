@@ -1,10 +1,17 @@
 const express = require('express');
-const Controller = require('../controllers/controller');
+const UserController = require('../controllers/UserController');
 const router = express.Router();
+const { isLoggin, isAdmin } = require('../middlewares/auth')
 
-router.get('/register', Controller.formRegister)
-router.post('/register', Controller.postRegister)
-router.get('/login', Controller.formLogin)
-router.post('/login', Controller.formLogin)
+router.get('/register', UserController.formRegister)
+router.post('/register', UserController.postRegister)
+router.get('/login', UserController.formLogin)
+router.post('/login', UserController.postLogin)
+
+router.use(isLoggin)
+
+router.get('/logout', UserController.goLogout)
+router.get('/home', UserController.home)
+
 
 module.exports = router;
