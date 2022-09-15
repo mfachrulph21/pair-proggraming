@@ -4,9 +4,73 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+    <title>Home</title>
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <H1>INI DI HOME PAGE</H1>
+    <div class="top-bar">
+        <div class="mobile-toggle-container">
+         <a href="/profile"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533118808/menu-button-of-three-horizontal-lines.png" alt="menu-icon" /></a>
+         </div>
+        <div class="logo-container">
+        <a href="/home"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533139132/website-home-page.png" alt="profile logo" /></a>
+        </div>
+        <div class="search-container">
+            <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533118681/musica-searcher.png" alt="search-icon" /> 
+         </div>     
+        </div> 
+      
+      <div class="post-tweet">
+        <h3>What's Happening?</h3> 
+        <form action="/" method="post">
+          <textarea name="content"></textarea>
+          <button type="submit">Post Tweet</button>
+        </form> 
+      </div> 
+
+      <% data.forEach((el) => { %>
+            <% el.Posts.forEach((post) => { %>
+                <div class="tweet-block">
+                    <img src="<%= el.Profile.photo %>" alt="profile photo" /><br>
+                    <span><%= post.category %></span>
+                    <span class="tweet-content"><span class="display-name"><%= el.username %></span>•<span class="username">@<%= el.username %></span><br><%= post.content%></span>
+                    <div class="tweet-links">
+                    <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+                    <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+                    <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+                    </div> 
+               </div> 
+          <%  }) %> 
+      <% }) %> 
+      
+      <!-- <div class="tweet-block">
+              <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
+              <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">2m</span><br>I’m honestly fatigued by expenses, haven’t enjoyed my life in a long ass time.</span>
+              <div class="tweet-links">
+              <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+              <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+              <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+             </div>
+           </div> -->
+      <!-- <div class="tweet-block">
+              <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
+              <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">3m</span><br>A professional video game player broke up with "the world's sexiest weather girl" because he had to focus on the new Call of Duty game.</span>
+              <div class="tweet-links">
+              <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+              <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+              <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+             </div>
+           </div>
+      <div class="tweet-block">
+              <img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533122246/profile-picture.jpg" alt="profile photo" />
+              <span class="tweet-content"><span class="display-name">John James</span>•<span class="username">@JohnJames</span><span class="timestamp">5m</span><br>I just need a woman to take me out and spoil me mercilessly.</span>
+              <div class="tweet-links">
+              <span class="reply-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/speech-bubble.png" alt="reply tweet" /></a></span>
+              <span class="retweet-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134296/retweet.png" alt="retweet tweet" /></a></span>
+              <span class="like-tweet-link"><a href="#"><img src="https://res.cloudinary.com/jorpdesigns/image/upload/v1533134295/star.png" alt="like tweet" /></a></span>
+             </div>
+           </div>    
+        </div>
+     -->
 </body>
 </html>

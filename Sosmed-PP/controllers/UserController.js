@@ -2,15 +2,11 @@ const { User } = require('../models')
 const bcrypt = require('bcryptjs');
 
 class Controller {
-    static home(req, res) {
-        console.log(req.session);
-        res.render('home')
-    }
-    
+
     static formRegister(req, res) {
         res.render('register')
     }
-    
+
     static postRegister(req, res) {
         const { username, email, password, role } = req.body
         User.create({ username, email, password, role })
@@ -19,8 +15,7 @@ class Controller {
         })
         .catch((err) => {
             res.send(err)
-        })
-        
+        }) 
     } 
 
     static formLogin(req, res) {
@@ -28,7 +23,7 @@ class Controller {
 
         res.render('login', { error })
     }
-    
+
     static postLogin(req, res) {
         const { username, password } = req.body
 
@@ -50,6 +45,30 @@ class Controller {
                 const errors = 'Invalid username/password'
                 return res.redirect(`/login?error=${errors}`)
             }
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
+
+    static home(req, res) {
+        let id = req.params.id
+        let result;
+
+        User.findAll({
+            include : [Profile, Post]
+        })
+        .then((data) => {
+            result = data
+            return Profile.findOne({
+                where : {
+                    UserId : id
+                }
+            })
+        })
+        .then((dataProfile) => {
+            // res.send({result, dataProfile})
+            res.render('home', { result, dataProfile })
         })
         .catch((err) => {
             res.send(err)
