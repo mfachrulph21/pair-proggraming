@@ -19,10 +19,8 @@
         <label>Gender</label><br>
         <select name="gender"> 
             <option selected disabled>-- choose role --</option>
-            <option value="Male"<% data.gender === 'Male' ? selected %> >Male</option>
+            <option value="<%= data.gender %>" selected ><%= data.gender %></option>
             <option value="Female">Female</option>
-                <option value="<%= data.gender %>" selected ><%= data.gender %></option>
-                <option value="Female">Female</option>
         </select> <br><br>
         <label>email</label><br>
         <input type="text" name="email" value="<%= data.User.email%>" placeholder="email"><br><br>

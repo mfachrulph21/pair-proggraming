@@ -15,8 +15,6 @@ router.get('/home', UserController.home)
 router.post('/home', UserController.handleTweet)
 router.get('/profile', UserController.editProfile)
 router.post('/profile', UserController.postProfile)
-router.get('/listUser', isAdmin, UserController.listUser)
-router.get('/listUser/delete', isAdmin, UserController.deleteUser)
-
+router.get('/profile/detail', UserController.detailProfile)
 
 module.exports = router;

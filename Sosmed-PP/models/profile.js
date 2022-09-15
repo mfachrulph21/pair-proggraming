@@ -18,7 +18,7 @@ module.exports = (sequelize, DataTypes) => {
   Profile.init({
     biodata: {
       type : DataTypes.STRING,
-      defaultValue : 'mashook'
+      defaultValue : ''
     },
     birthDate: {
       type : DataTypes.DATE,

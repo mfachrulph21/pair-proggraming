@@ -90,7 +90,7 @@ class Controller {
     }
     
     static handleTweet(req,res) {
-        // console.log(req.body, 'ini di handle tweet')
+        console.log(req.body, 'ini di handle tweet')
 
         const { category, content } = req.body
         Post.create({ category, content, UserId : req.session.userId})
