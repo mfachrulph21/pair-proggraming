@@ -135,8 +135,8 @@ class Controller {
     }
 
     static postProfile(req, res) {
-        // console.log(req.session);
-        // console.log(req.body)
+        console.log(req.session);
+        console.log(req.body)
         let { name, biodata, birthDate, gender, email, phone, photo } = req.body
         Profile.update({name, biodata, birthDate, gender, email, phone, photo}, {
             where : {
