@@ -68,6 +68,7 @@ class Controller {
 
     static home(req, res) {
         let result;
+        let dataProfile;
 
         User.findAll({
             include : [Profile, Post]
@@ -81,8 +82,13 @@ class Controller {
             })
         })
         .then((dataProfile) => {
-            // res.send({result, dataProfile})
-            res.render('home', { result, dataProfile })
+            dataProfile = dataProfile
+            return User.findByPk(req.session.userId)
+        })
+        .then((dataUser) => {
+            // res.send({result, dataProfile, dataUser})
+            res.render('home', { result, dataProfile, dataUser })
+
         })
         .catch((err) => {
             res.send(err)
