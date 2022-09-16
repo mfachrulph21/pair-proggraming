@@ -36,5 +36,7 @@ router.get('/profile', UserController.editProfile)
 router.post('/profile', UserController.postProfile)
 // router.post('/profile',  upload.single("photo"), UserController.postProfile)
 router.get('/profile/detail', UserController.detailProfile)
+router.get('/listUser', UserController.listUser)
+router.get('/listUser/:id/delete', UserController.deleteUser)
 
 module.exports = router;

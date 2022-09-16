@@ -129,8 +129,8 @@ class Controller {
     }
 
     static postProfile(req, res) {
-        console.log(req.session);
-        console.log(req.body)
+        // console.log(req.session);
+        // console.log(req.body)
         let { name, biodata, birthDate, gender, email, phone, photo } = req.body
         Profile.update({name, biodata, birthDate, gender, email, phone, photo}, {
             where : {
@@ -161,8 +161,32 @@ class Controller {
         })   
     }
 
-    static listUser(req, res) {}
+    static listUser(req, res) {
+        User.findAll()
+        .then((result) => {
+            // res.send(result)
+            res.render('listUser', {result})
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
 
+    static deleteUser(req, res) {
+        console.log(req.params);
+        let { id } = req.params
+        User.destroy({
+            where: {
+                id : id
+            }
+        })
+        .then((data) => {
+            res.redirect('/listUser')
+        })
+        .catch((err) => {
+            res.send(err)
+        })
+    }
 
 }
 
